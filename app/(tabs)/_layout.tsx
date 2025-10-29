@@ -34,7 +34,21 @@ export default function TabLayout() {
         name="tab"
         options={{
           title: 'New Tab',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="plus.circle" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="location-demo"
+        options={{
+          title: 'Location Demo',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="location.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="location-task-mgr"
+        options={{
+          title: 'Location Task Manager',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="map.fill" color={color} />,
         }}
       />
     </Tabs>
