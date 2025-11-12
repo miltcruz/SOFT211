@@ -3,7 +3,7 @@ import { ThemedView } from '@/components/themed-view';
 import * as Location from 'expo-location';
 import { useState } from 'react';
 import { Button, Platform } from 'react-native';
-import { LOCATION_TASK } from '../../tasks/locaiton.task';
+import { LOCATION_TASK } from '../../tasks/location.task';
 
 declare global {
   interface Window {

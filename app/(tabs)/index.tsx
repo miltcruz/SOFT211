@@ -19,13 +19,14 @@ export default function HomeScreen() {
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome!</ThemedText>
-        <br />
+        <HelloWave />
+      </ThemedView>
+
+      <ThemedView style={{ gap: 8, marginTop: 8 }}>
         <Link href={{ pathname: '/details/[id]', params: { id: 'abc' } }}>
           Open Details for ID: abc
         </Link>
-        <br />
         <Link href="/modal">Open Modal</Link>
-        <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
