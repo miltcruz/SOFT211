@@ -39,7 +39,8 @@
           }
         }
       ],
-      "expo-background-task"
+      "expo-background-task",
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true,
