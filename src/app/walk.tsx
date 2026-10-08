@@ -32,12 +32,17 @@ export default function WalkScreen() {
   if (errorMsg) {
     text = errorMsg;
   } else if (location) {
-    text = JSON.stringify(location);
+    const { latitude, longitude } = location?.coords ?? {
+      latitude: "N/A",
+      longitude: "N/A",
+    };
+
+    text = `Latitude: ${latitude}, Longitude: ${longitude}`;
   }
 
   return (
     <View style={styles.container}>
-      <PermissionsButton />
+      <PermissionsButton title="Start Walk" />
       <Text style={styles.paragraph}>{text}</Text>
     </View>
   );
