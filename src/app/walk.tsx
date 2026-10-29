@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
 import { useEffect, useState } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { Button, Platform, StyleSheet, Text, View } from "react-native";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -57,6 +57,20 @@ async function registerForPushNotificationsAsync() {
   }
 
   return token;
+}
+
+async function schedulePushNotification() {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "You've got mail! 📬",
+      body: "Here is the notification body",
+      data: { data: "goes here", test: { test1: "more data" } },
+    },
+    trigger: {
+      type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+      seconds: 2,
+    },
+  });
 }
 
 export default function WalkScreen() {
@@ -133,6 +147,28 @@ export default function WalkScreen() {
     <View style={styles.container}>
       <PermissionsButton title="Start Walk" />
       <Text style={styles.paragraph}>{text}</Text>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Your expo push token: {expoPushToken}</Text>
+        <Text>{`Channels: ${JSON.stringify(
+          channels.map((c) => c.id),
+          null,
+          2,
+        )}`}</Text>
+        <Button
+          title="Press to schedule a notification"
+          onPress={async () => {
+            await schedulePushNotification();
+          }}
+        />
+        <Text>
+          Title: {notification && notification.request.content.title}{" "}
+        </Text>
+        <Text>Body: {notification && notification.request.content.body}</Text>
+        <Text>
+          Data:{" "}
+          {notification && JSON.stringify(notification.request.content.data)}
+        </Text>
+      </View>
     </View>
   );
 }
