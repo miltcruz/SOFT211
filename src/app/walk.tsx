@@ -1,4 +1,5 @@
 import PermissionsButton from "@/components/permissions-button";
+import WalkMap from "@/components/walk-map";
 import Constants from "expo-constants";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
@@ -147,6 +148,7 @@ export default function WalkScreen() {
     <View style={styles.container}>
       <PermissionsButton title="Start Walk" />
       <Text style={styles.paragraph}>{text}</Text>
+      <WalkMap />
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Your expo push token: {expoPushToken}</Text>
         <Text>{`Channels: ${JSON.stringify(
