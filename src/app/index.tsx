@@ -9,7 +9,7 @@ import { ThemedView } from "@/components/themed-view";
 import { WebBadge } from "@/components/web-badge";
 import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
 import * as Linking from "expo-linking";
-import { Link } from "../../.expo/types/router";
+import { Link } from "expo-router";
 
 function getDevMenuHint() {
   if (Platform.OS === "web") {
