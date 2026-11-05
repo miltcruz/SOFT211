@@ -69,7 +69,6 @@ TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },

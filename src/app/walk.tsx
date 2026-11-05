@@ -149,7 +149,7 @@ export default function WalkScreen() {
       <PermissionsButton title="Start Walk" />
       <Text style={styles.paragraph}>{text}</Text>
       <WalkMap />
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.notificationInfo}>
         <Text>Your expo push token: {expoPushToken}</Text>
         <Text>{`Channels: ${JSON.stringify(
           channels.map((c) => c.id),
@@ -178,15 +178,16 @@ export default function WalkScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: "stretch",
+    justifyContent: "flex-start",
   },
   paragraph: {
     fontSize: 18,
     textAlign: "center",
+    marginTop: 20,
+  },
+  notificationInfo: {
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
-    marginTop: 20,
   },
 });
