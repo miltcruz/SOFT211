@@ -3,6 +3,7 @@ import WalkMap from "@/components/walk-map";
 import Constants from "expo-constants";
 import * as Location from "expo-location";
 import * as Notifications from "expo-notifications";
+import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Button, Platform, StyleSheet, Text, View } from "react-native";
 
@@ -149,6 +150,9 @@ export default function WalkScreen() {
       <PermissionsButton title="Start Walk" />
       <Text style={styles.paragraph}>{text}</Text>
       <WalkMap />
+      <Link href={"/walk-notes"} style={{ marginTop: 20 }}>
+        Go to Walk Notes
+      </Link>
       <View style={styles.notificationInfo}>
         <Text>Your expo push token: {expoPushToken}</Text>
         <Text>{`Channels: ${JSON.stringify(
